@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Spelling Bee</title>
 </head>
 <body>
@@ -10,16 +11,21 @@
         <div id="left-container">
             <input type="text" id="user-guess">
             <div id="letter-boxes">
-                <div class="letter"></div>
-                <div class="letter"></div>
-                <div class="letter"></div>
-                <div class="letter"></div>
-                <div class="letter"></div>
-                <div class="letter"></div>
-                <div class="letter"></div>
+                <svg class="letter">
+                    <polygon class=" cell-fill"
+                </svg>
+
+                <svg class="letter">
+                    <text>F</text>
+                </svg>
+                <svg class="letter"></svg>
+                <svg class="letter"></svg>
+                <svg class="letter"></svg>
+                <svg class="letter"></svg>
+                <svg class="letter"></svg>
             </div>
             <div id="button-container">
-                <button type="button" id="delete-btn"></button>
+                <button type="button" id="del-btn"></button>
                 <button type="button" id="shuffle-btn"></button>
                 <button type="button" id="enter-btn"></button>
             </div>
