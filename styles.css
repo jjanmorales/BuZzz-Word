@@ -1,0 +1,81 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  align-items: center;
+}
+#game-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("https://gamingdna.co.nz/wp-content/uploads/2018/05/Pokemon-BG.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.game-control {
+    width: 290px;
+}
+.main {
+    display:flex;
+    --s: 90px;  /* size  */
+    --m: 3px;    /* margin */
+    --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px); 
+  }
+  
+  .container {
+    font-size: 0; /* disable white space between inline block element */
+    color: white;
+  }
+  
+  .container div {
+    background-color: red;
+    width: var(--s);
+    margin: var(--m);
+    height: calc(var(--s) * 1.1547);
+    display: inline-block;
+    font-size:initial;
+    clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+    margin-bottom: calc(var(--m) - var(--s) * 0.2885);
+  }
+  
+  .container::before {
+    content: "";
+    width: calc(var(--s) / 2 + var(--m));
+    float: left;
+    height: 120%; 
+    shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
+  }
+  
+#right-container {
+  display: flex;
+  width: 50%;
+}
+#left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+#button-container {
+  margin-top: 70;
+  height: 30px;
+}
+#user-guess {
+  margin-bottom: 30;
+  background-color: transparent;
+  min-height: 30px;
+}
+#words-found {
+  /* border-radius: 5px solid black; */
+  width: 80%;
+  padding: 10;
+  background-color: white;
+  height: 600px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
