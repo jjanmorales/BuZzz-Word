@@ -28,11 +28,13 @@ body {
   
   .container {
     font-size: 0; /* disable white space between inline block element */
-    color: white;
+    /* color: white; */
   }
   
   .container div {
-    background-color: red;
+    background-color: rgb(231, 123, 123);
+    color: white;
+    text-align: center;
     width: var(--s);
     margin: var(--m);
     height: calc(var(--s) * 1.1547);
@@ -43,6 +45,8 @@ body {
   }
   
   .container::before {
+    /* color: white; */
+    /* text-align: center; */
     content: "";
     width: calc(var(--s) / 2 + var(--m));
     float: left;
@@ -69,6 +73,7 @@ body {
   margin-bottom: 30;
   background-color: transparent;
   min-height: 30px;
+  border: 0;
 }
 #words-found {
   /* border-radius: 5px solid black; */
@@ -76,6 +81,6 @@ body {
   padding: 10;
   background-color: white;
   height: 600px;
-  border: 3px solid black;
+  border: 2px solid black;
   border-radius: 10px;
 }
