@@ -9,7 +9,7 @@ function deleteChar() {
 }
 
 // Enter Button
-function enterCurrentWord() {
+ function enterCurrentWord() {
     if (currentWord.length < 4) {
         flashMsg("too few letters 😬");
         currentWord = "";

@@ -60,6 +60,8 @@ body {
   justify-content: center;
   align-items: center;
   width: 50%;
+  color: white;
+  text-align: center;
 }
 #button-container {
   margin-top: 70;
