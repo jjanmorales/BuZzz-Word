@@ -15,6 +15,8 @@ const letterCell = document.getElementsByClassName("letter-cell");
 //Create list for words that are create and append to white box
 const wordsFoundUl = document.createElement("ul");
 wordsFound.appendChild(wordsFoundUl);
+//Array to keep track of guessed words
+let guessedWordsArr = [];
 
 //extract groups of letters from words object to display in hexagons
 //Extract word list for that group of letters
@@ -47,10 +49,12 @@ function displayLetters(){
 //increment amount of words found in the sentence on top 
 function checkUserInput(){
     enter.addEventListener("click", () =>{
-        if((userGuess.value).length > 3 && isCorrect(userGuess.value, wordList)){
+        //check for proper length, correct word and if word has been guessed already
+        if((userGuess.value).length > 3 && isCorrect(userGuess.value) && !alreadyGuessed(userGuess.value) ){
          const wordsFoundLi = document.createElement("li");
-         wordsFoundLi.innerText = userGuess.value;
+         wordsFoundLi.innerText = userGuess.value.toUpperCase();
          wordsFoundUl.appendChild(wordsFoundLi);
+         guessedWordsArr.push(userGuess.value.toUpperCase());
          wordsFoundLi.style.listStyle = 'none';
          counter.innerText = Number(counter.innerText) + Number(1);
          userGuess.value = "";
@@ -71,11 +75,14 @@ function getWordList(letters){
 
 //Check to make sure the user input matches one of the words in the array for that set of letters
 //Takes in array of words for the current game letters and the word guessed by user
-function isCorrect(userInput, wordList){
+function isCorrect(userInput){
     return wordList.includes(userInput.toLowerCase());
 }
 
-
+//Check to see if the word has already been guessed by looking through the array
+function alreadyGuessed(userInput){
+    return guessedWordsArr.includes(userInput.toUpperCase());
+}
 
 
 
