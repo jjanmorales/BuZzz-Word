@@ -2,7 +2,8 @@ import {words} from "./wordsObj.js";
 document.addEventListener("DOMContentLoaded", () => {
     displayLetters();   
     checkUserInput(); 
-    deleteLetterBtn()
+    deleteLetterBtn();
+    flash();
 })
 
 
@@ -99,11 +100,19 @@ function deleteLetterBtn(){
 //when user clicks new game button, new letters are placed in letter cells
 //right side container holding the guessed words is cleared and sentence
 //restarts at 0 words
-// const newGameBtn = createElId("new-game-btn");
+const newGameBtn = createElId("new-game-btn");
 // function newGame(){
 //     newGameBtn.addEventListener("click", () =>{
 
 //     });
 // }
 
+function flash(){
+    newGameBtn.addEventListener("click", () =>{
+    notify({
+        message: 'Notification Message Here'
+      });
+      notify();
+    })
+}
  
