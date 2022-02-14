@@ -43,6 +43,7 @@ function displayLetters(){
             userGuess.value += `${letterCell[i].innerText}`;
         });
     }
+    console.log("runs")
 }
 
 //Take user input and check to see of the word is correct when they click the enter button
@@ -95,7 +96,14 @@ function deleteLetterBtn(){
     })
 }
 
+//when user clicks new game button, new letters are placed in letter cells
+//right side container holding the guessed words is cleared and sentence
+//restarts at 0 words
+// const newGameBtn = createElId("new-game-btn");
+// function newGame(){
+//     newGameBtn.addEventListener("click", () =>{
 
-
+//     });
+// }
 
  
