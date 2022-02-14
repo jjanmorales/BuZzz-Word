@@ -60,9 +60,14 @@ function checkUserInput(){
          guessedWordsArr.push(userGuess.value.toUpperCase());
          wordsFoundLi.style.listStyle = 'none';
          counter.innerText = Number(counter.innerText) + Number(1);
+         rightAlert.style.visibility = 'visible';
+         setInterval(() => {rightAlert.style.visibility = 'hidden'}, 1000); 
          userGuess.value = "";
        }else{
         userGuess.value = "";
+        wrongAlert.style.visibility = 'visible';
+        setInterval(() => {wrongAlert.style.visibility = 'hidden'}, 1000);
+
        }
     })
 }
@@ -101,18 +106,17 @@ function deleteLetterBtn(){
 //right side container holding the guessed words is cleared and sentence
 //restarts at 0 words
 const newGameBtn = createElId("new-game-btn");
-// function newGame(){
-//     newGameBtn.addEventListener("click", () =>{
-
-//     });
-// }
+const wrongAlert = createElId("wrong-alert")
+const rightAlert = createElId("right-alert")
+wrongAlert.style.visibility = 'hidden';
+rightAlert.style.visibility = 'hidden';
 
 function flash(){
+    // const modal = document.getElementById("modal");
     newGameBtn.addEventListener("click", () =>{
-    notify({
-        message: 'Notification Message Here'
-      });
-      notify();
+               // console.log(modal);
+        // modal.classList.add('is-active');
+        
     })
 }
  
