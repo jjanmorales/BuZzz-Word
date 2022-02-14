@@ -2,7 +2,7 @@ import {words} from "./wordsObj.js";
 document.addEventListener("DOMContentLoaded", () => {
     displayLetters();   
     checkUserInput(); 
-    deleteLetter()
+    deleteLetterBtn()
 })
 
 
@@ -86,7 +86,7 @@ function alreadyGuessed(userInput){
 
 //DeleteBtn button events
 //Deletes a character from input display box when delete button is clicked on
-function deleteLetter(){
+function deleteLetterBtn(){
     deleteBtn.addEventListener("click", () =>{
         let input = (userGuess.value).split("");
         input.pop();
