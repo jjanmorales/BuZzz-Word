@@ -62,6 +62,8 @@ body {
   justify-content: center;
   align-items: center;
   width: 50%;
+  height: 100vh;
+
   color: white;
   text-align: center;
 }
@@ -102,4 +104,3 @@ body {
   padding: 5px 9px;
   margin: 5px;
 }
-
