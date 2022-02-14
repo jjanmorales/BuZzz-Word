@@ -2,13 +2,13 @@ import {words} from "./wordsObj.js";
 document.addEventListener("DOMContentLoaded", () => {
     displayLetters();   
     checkUserInput(); 
-    console.log(wordList)
-    
+    deleteLetterBtn()
 })
 
 
 const userGuess = createElId("user-guess");
 const enter = createElId("enter-btn");
+const deleteBtn = createElId("del-btn");
 const wordsFound = createElId("words-found");
 const counter = createElId("counter");
 const letterCell = document.getElementsByClassName("letter-cell");
@@ -84,6 +84,15 @@ function alreadyGuessed(userInput){
     return guessedWordsArr.includes(userInput.toUpperCase());
 }
 
+//DeleteBtn button events
+//Deletes a character from input display box when delete button is clicked on
+function deleteLetterBtn(){
+    deleteBtn.addEventListener("click", () =>{
+        let input = (userGuess.value).split("");
+        input.pop();
+        userGuess.value = input.join("");
+    })
+}
 
 
 
