@@ -153,7 +153,7 @@ function newGame(){
 
 const winContainer = getElementsByClassName("win-container");
 function win(){
-    if(guessedWordsArr.length === 10){
+    if(guessedWordsArr.length === 10){//fvd
         
     }
 }
