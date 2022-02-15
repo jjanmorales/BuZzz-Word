@@ -4,23 +4,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <script src="inputDisplay.js" type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai&display=swap" rel="stylesheet">
     <title>Spelling Bee</title>
 </head>
 <body>
     <div id="game-container">
         <div id="left-container">
-            <input type="text" id="user-guess" placeholder="Click or Type">
+
+            <div class="alert alert-warning" role="alert" id="wrong-alert">
+                Eh Wrong!😬
+            </div>
+
+            <form id="submit-form">
+            <input autocomplete="off" type="text" id="user-guess" placeholder="Click or Type">
+            
             <div class="game-control">
                 <div id="control-hex">
                     <div class="top-middle sizing">
                         <div class="box sizing">
-                        <svg class ="letter-cell" width="90" height="90" viewBox="0 0 274 232" fill="currentColor" >
+                        <svg class ="letter-cell" width="90" height="90" viewBox="0 0 274 232" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="bottom-left" filter="url(#filter0_d_46_16)">
-                            <path id="effects" fill-rule="evenodd" clip-rule="evenodd" d="M70.8178 2.0354C70.3736 2.60529 56.6433 25.4355 40.3067 52.7701C23.9694 80.1047 9.34152 104.568 7.80136 107.134C6.26036 109.699 5 112.002 5 112.251C5 112.5 17.0058 132.766 31.6801 157.286C46.3545 181.806 61.2048 206.622 64.6812 212.434L71.0029 223L137.381 222.788L203.759 222.576L218.425 198.14C268.41 114.86 269.757 112.526 268.839 110.775C268.045 109.259 230.696 46.6637 211.123 14.0461L203.294 1H137.46C85.7769 1 71.4521 1.22282 70.8178 2.0354ZM201.045 22.5364C203.686 26.8643 216.85 48.8057 230.3 71.2946L254.753 112.184L249.961 120.166C247.325 124.556 234.086 146.694 220.541 169.362L195.913 210.576L137.204 210.364L78.4954 210.151L72.9865 201.04C51.0663 164.781 20.5494 113.337 20.4639 112.497C20.4066 111.938 33.4279 89.6014 49.3999 62.8615L78.4397 14.2424L137.342 14.4544L196.244 14.6673L201.045 22.5364Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M70.8178 2.0354C70.3736 2.60529 56.6433 25.4355 40.3067 52.7701C23.9694 80.1047 9.34152 104.568 7.80136 107.134C6.26036 109.699 5 112.002 5 112.251C5 112.5 17.0058 132.766 31.6801 157.286C46.3545 181.806 61.2048 206.622 64.6812 212.434L71.0029 223L137.381 222.788L203.759 222.576L218.425 198.14C268.41 114.86 269.757 112.526 268.839 110.775C268.045 109.259 230.696 46.6637 211.123 14.0461L203.294 1H137.46C85.7769 1 71.4521 1.22282 70.8178 2.0354ZM201.045 22.5364C203.686 26.8643 216.85 48.8057 230.3 71.2946L254.753 112.184L249.961 120.166C247.325 124.556 234.086 146.694 220.541 169.362L195.913 210.576L137.204 210.364L78.4954 210.151L72.9865 201.04C51.0663 164.781 20.5494 113.337 20.4639 112.497C20.4066 111.938 33.4279 89.6014 49.3999 62.8615L78.4397 14.2424L137.342 14.4544L196.244 14.6673L201.045 22.5364Z" fill="white"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M70.8178 2.0354C70.3736 2.60529 56.6433 25.4355 40.3067 52.7701C23.9694 80.1047 9.34152 104.568 7.80136 107.134C6.26036 109.699 5 112.002 5 112.251C5 112.5 17.0058 132.766 31.6801 157.286C46.3545 181.806 61.2048 206.622 64.6812 212.434L71.0029 223L137.381 222.788L203.759 222.576L218.425 198.14C268.41 114.86 269.757 112.526 268.839 110.775C268.045 109.259 230.696 46.6637 211.123 14.0461L203.294 1H137.46C85.7769 1 71.4521 1.22282 70.8178 2.0354ZM201.045 22.5364C203.686 26.8643 216.85 48.8057 230.3 71.2946L254.753 112.184L249.961 120.166C247.325 124.556 234.086 146.694 220.541 169.362L195.913 210.576L137.204 210.364L78.4954 210.151L72.9865 201.04C51.0663 164.781 20.5494 113.337 20.4639 112.497C20.4066 111.938 33.4279 89.6014 49.3999 62.8615L78.4397 14.2424L137.342 14.4544L196.244 14.6673L201.045 22.5364Z" stroke="black"/>
                             </g>
                             <defs>
@@ -159,6 +172,7 @@
                             </defs>
                         </svg>
                         <div class="letter sizing">F</div>
+
                     </div>
                     </div> 
 
@@ -192,21 +206,36 @@
 
                     
             <div id="button-container">
+
+                <button type="button" id="new-game-btn">New Game</button>
                 <button type="button" id="del-btn">Delete</button>
-                <!-- <button type="button" id="shuffle-btn">Shuffle</button> -->
-                <button type="button" id="enter-btn">Enter</button>
+                <button type="submit" id="enter-btn">Enter</button>
+            </form>
+                
             </div>
         </div>
 
 
         <div id="right-container">
+            <div id="progress-tracker"></div>
             <div id="words-found">
-                <div id="progress-tracker"></div>
                 <p>You have found <span id="counter">0</span> words</p>
+                <div class = "column-container">
+                <div class="column" id="column-1"></div>
+               </div>
             </div>
         </div>
     </div>
-</div>
-    
+  
+    </div>
+  <div class = "win-container">
+    <div class = "win-message">
+      Yayyy you won!
+    </div>
+  </div>
+   
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 </html>

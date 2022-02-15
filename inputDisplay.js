@@ -64,7 +64,6 @@ function updateCurrentScore(word) {
     // update the container that displays current score
     const points = word.length;
     currentScore = points + currentScore;
-
     const pointsTracker =document.getElementById('progress-tracker')
     pointsTracker.innerText = currentScore;
 }
