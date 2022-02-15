@@ -153,6 +153,13 @@ function newGame(){
             currentGameLetters = letterGroups[num];
             wordList = getWordList(currentGameLetters);
             displayLetters();
+            counter.innerText = Number(0)
+        }else if(num === (letterGroups.length)){
+            num = 0;
+            currentGameLetters = letterGroups[num];
+            wordList = getWordList(currentGameLetters);
+            displayLetters();
+            counter.innerText = Number(0)
         }
     })
     
