@@ -18,13 +18,12 @@
         <div id="left-container">
 
             <div class="alert alert-warning" role="alert" id="wrong-alert">
-                wrong word!
-            </div>
-            <div class="alert alert-success" role="alert" id="right-alert">
-                Period!
+                Eh Wrong!😬
             </div>
 
+            <form id="submit-form">
             <input type="text" id="user-guess" placeholder="Click or Type">
+            
             <div class="game-control">
                 <div class="main">
                     <div class="container">
@@ -40,10 +39,12 @@
             </div>
             
             <div id="button-container">
-                <button type="button" id="del-btn">Delete</button>
-                <button type="button" id="enter-btn">Enter</button>
-                <button type="button" id="new-game-btn">New Game</button>
 
+                <button type="button" id="new-game-btn">New Game</button>
+                <button type="button" id="del-btn">Delete</button>
+                <button type="submit" id="enter-btn">Enter</button>
+            </form>
+                
             </div>
         </div>
 
@@ -52,6 +53,10 @@
             <div id="progress-tracker"></div>
             <div id="words-found">
                 <p>You have found <span id="counter">0</span> words</p>
+               <div class = "column-container">
+                <div class="column" id="column-1"></div>
+                <div class="column" id="column-2"></div>
+               </div>
             </div>
         </div>
     </div>

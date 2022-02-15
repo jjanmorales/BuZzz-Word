@@ -3,19 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
     displayLetters();   
     checkUserInput(); 
     deleteLetterBtn();
-    flash();
 })
 
-
+const submitForm = createElId("submit-form")
 const userGuess = createElId("user-guess");
 const enter = createElId("enter-btn");
 const deleteBtn = createElId("del-btn");
 const wordsFound = createElId("words-found");
 const counter = createElId("counter");
 const letterCell = document.getElementsByClassName("letter-cell");
-//Create list for words that are create and append to white box
-const wordsFoundUl = document.createElement("ul");
-wordsFound.appendChild(wordsFoundUl);
+//Create lists for words that are create and append to white box
+const column1 = createElId("column-1");
+const column2 = createElId("column-2");
+let columnNum = 0;
+
 //Array to keep track of guessed words
 let guessedWordsArr = [];
 
@@ -47,28 +48,49 @@ function displayLetters(){
     console.log("runs")
 }
 
+const enterForm = createElId("enter-form");
+
 //Take user input and check to see of the word is correct when they click the enter button
 //If it is correct, take the word and display it in the white right-side box and
 //increment amount of words found in the sentence on top 
 function checkUserInput(){
-    enter.addEventListener("click", () =>{
+    submitForm.addEventListener("submit", () =>{
+        event.preventDefault();
         //check for proper length, correct word and if word has been guessed already
-        if((userGuess.value).length > 3 && isCorrect(userGuess.value) && !alreadyGuessed(userGuess.value) ){
-         const wordsFoundLi = document.createElement("li");
-         wordsFoundLi.innerText = userGuess.value.toUpperCase();
-         wordsFoundUl.appendChild(wordsFoundLi);
-         guessedWordsArr.push(userGuess.value.toUpperCase());
-         wordsFoundLi.style.listStyle = 'none';
-         counter.innerText = Number(counter.innerText) + Number(1);
-         rightAlert.style.visibility = 'visible';
-         setInterval(() => {rightAlert.style.visibility = 'hidden'}, 1000); 
-         userGuess.value = "";
-       }else{
-        userGuess.value = "";
-        wrongAlert.style.visibility = 'visible';
-        setInterval(() => {wrongAlert.style.visibility = 'hidden'}, 1000);
-
-       }
+        if((userGuess.value).length > 3 && isCorrect(userGuess.value) && !alreadyGuessed(userGuess.value)){
+            if((columnNum%2) === 0){
+             const par = document.createElement("p");
+             par.innerText = userGuess.value.toUpperCase();
+             column1.appendChild(par);
+             guessedWordsArr.push(userGuess.value.toUpperCase());
+             counter.innerText = Number(counter.innerText) + Number(1);
+             columnNum++;
+            }else if((columnNum%2) >= 1){
+             const par = document.createElement("p");
+             par.innerText = userGuess.value.toUpperCase();
+             column2.appendChild(par);
+             guessedWordsArr.push(userGuess.value.toUpperCase());
+             counter.innerText = Number(counter.innerText) + Number(1);
+             columnNum++;
+            }
+            alert.innerText = "Yaass!"
+            alert.style.visibility = 'visible';
+            setInterval(() => {alert.style.visibility = 'hidden'}, 1000); 
+            userGuess.value = "";
+            return true;
+       }else if(alreadyGuessed(userGuess.value)){
+            userGuess.value = "";
+            alert.innerText = "You already guessed that!"
+            alert.style.visibility = 'visible';
+            setInterval(() => {alert.style.visibility = 'hidden'}, 1000); 
+            return false;
+        }else{
+            userGuess.value = "";
+            alert.innerText = "Eh Wrong!😬"
+            alert.style.visibility = 'visible';
+            setInterval(() => {alert.style.visibility = 'hidden'}, 1000);
+            return false;
+        }
     })
 }
 
@@ -106,17 +128,15 @@ function deleteLetterBtn(){
 //right side container holding the guessed words is cleared and sentence
 //restarts at 0 words
 const newGameBtn = createElId("new-game-btn");
-const wrongAlert = createElId("wrong-alert")
-const rightAlert = createElId("right-alert")
-wrongAlert.style.visibility = 'hidden';
-rightAlert.style.visibility = 'hidden';
+const alert = createElId("wrong-alert");
+alert.style.visibility = 'hidden';
 
 function flash(){
     // const modal = document.getElementById("modal");
-    newGameBtn.addEventListener("click", () =>{
-               // console.log(modal);
-        // modal.classList.add('is-active');
+    // newGameBtn.addEventListener("click", () =>{
+    //            // console.log(modal);
+    //     // modal.classList.add('is-active');
         
-    })
+    // })
 }
  
