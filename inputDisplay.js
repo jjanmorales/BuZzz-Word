@@ -14,7 +14,10 @@ const enter = createElId("enter-btn");
 const deleteBtn = createElId("del-btn");
 const wordsFound = createElId("words-found");
 const counter = createElId("counter");
+
 const letterCell = document.getElementsByClassName("letter");
+//Create list for words that are create and append to white box
+const wordsFoundUl = document.createElement("ul");
 const alert = createElId("wrong-alert");
 alert.style.visibility = 'hidden';
 //Create lists for words that are create and append to white box
@@ -84,19 +87,17 @@ function checkUserInput(){
             alert.style.visibility = 'visible';
             setInterval((() => {alert.style.visibility = 'hidden'}), 1500); 
             userGuess.value = "";
-            return true;
+            win();
         }else if(alreadyGuessed(userGuess.value)){
             userGuess.value = "";
             alert.innerText = "You already guessed that!"
             alert.style.visibility = 'visible';
             setInterval((() => {alert.style.visibility = 'hidden'}), 1500); 
-            return false;
         }else if((userGuess.value).length > 4){
             userGuess.value = "";
             alert.innerText = "Eh Wrong!😬"
             alert.style.visibility = 'visible';
             setInterval((() => {alert.style.visibility = 'hidden'}), 1500);
-            return false;
         }else{
             userGuess.value = "";
             alert.innerText = "Too short!😬"
@@ -165,8 +166,9 @@ function newGame(){
     
 }
 
+const winContainer = getElementsByClassName("win-container");
 function win(){
-    if(guessedWord = 10){
-       
+    if(guessedWordsArr.length === 10){//fvd
+        
     }
 }
