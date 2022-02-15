@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     newGame();
 })
 
+const modal = createElId("exampleModalCenter");
+
 const submitForm = createElId("submit-form")
 const userGuess = createElId("user-guess");
 const enter = createElId("enter-btn");
@@ -17,8 +19,6 @@ const alert = createElId("wrong-alert");
 alert.style.visibility = 'hidden';
 //Create lists for words that are create and append to white box
 const column1 = createElId("column-1");
-const column2 = createElId("column-2");
-let columnNum = 0;
 
 //Array to keep track of guessed words
 let guessedWordsArr = [];
@@ -61,21 +61,11 @@ function checkUserInput(){
         event.preventDefault();
         //check for proper length, correct word and if word has been guessed already
         if((userGuess.value).length > 3 && isCorrect(userGuess.value) && !alreadyGuessed(userGuess.value)){
-            if((columnNum%2) === 0){
-             const par = document.createElement("p");
-             par.innerText = userGuess.value.toUpperCase();
-             column1.appendChild(par);
-             guessedWordsArr.push(userGuess.value.toUpperCase());
-             counter.innerText = Number(counter.innerText) + Number(1);
-             columnNum++;
-            }else if((columnNum%2) >= 1){
-             const par = document.createElement("p");
-             par.innerText = userGuess.value.toUpperCase();
-             column2.appendChild(par);
-             guessedWordsArr.push(userGuess.value.toUpperCase());
-             counter.innerText = Number(counter.innerText) + Number(1);
-             columnNum++;
-            }
+            const par = document.createElement("p");
+            par.innerText = userGuess.value.toUpperCase();
+            column1.appendChild(par);
+            guessedWordsArr.push(userGuess.value.toUpperCase());
+            counter.innerText = Number(counter.innerText) + Number(1);
             alert.innerText = "Yaass!"
             alert.style.visibility = 'visible';
             setInterval((() => {alert.style.visibility = 'hidden'}), 1500); 
@@ -140,14 +130,10 @@ function newGame(){
     newGameBtn.addEventListener("click",()=>{
         userGuess.value = "";
         guessedWordsArr = [];
-        let column2Words = column2.children;
+        let column1Words = column1.children;
         for(let i = 0; i < (column1.children).length; i++){
             (column1.children[i]).innerText ="";
         }
-        for(let i = 0; i < (column2.children).length; i++){
-            (column2.children[i]).innerText ="";
-        }
-        columnNum = 0;
         if(num < letterGroups.length){
             num++;
             currentGameLetters = letterGroups[num];
@@ -164,4 +150,9 @@ function newGame(){
     })
     
 }
- 
+
+function win(){
+    if(guessedWord = 10){
+       
+    }
+}

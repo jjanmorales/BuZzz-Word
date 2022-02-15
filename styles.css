@@ -109,3 +109,16 @@ body {
   justify-content: space-around;     
   align-items: center;
 }
+.win-message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+  /* width: 100%;
+  left: ; */
+  
+  top: 3em;
+}
+
+
