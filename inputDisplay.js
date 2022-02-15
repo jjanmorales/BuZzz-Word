@@ -39,7 +39,7 @@ function displayLetters(){
     for(let i = 0; i < letterCell.length; i++){
         //Display letters on the cells
         letterCell[i].innerText = currentGameLetters[i];
-        letterCell[i].style.paddingTop = "30px";
+        letterCell[i].style.paddingTop = "40px";
         //Handle click event on the letter cells
         letterCell[i].addEventListener("click", () =>{
             userGuess.value += `${letterCell[i].innerText}`;
@@ -75,21 +75,26 @@ function checkUserInput(){
             }
             alert.innerText = "Yaass!"
             alert.style.visibility = 'visible';
-            setInterval(() => {alert.style.visibility = 'hidden'}, 1000); 
+            setInterval((() => {alert.style.visibility = 'hidden'}), 1500); 
             userGuess.value = "";
             return true;
-       }else if(alreadyGuessed(userGuess.value)){
+        }else if(alreadyGuessed(userGuess.value)){
             userGuess.value = "";
             alert.innerText = "You already guessed that!"
             alert.style.visibility = 'visible';
-            setInterval(() => {alert.style.visibility = 'hidden'}, 1000); 
+            setInterval((() => {alert.style.visibility = 'hidden'}), 1500); 
             return false;
-        }else{
+        }else if((userGuess.value).length > 4){
             userGuess.value = "";
             alert.innerText = "Eh Wrong!😬"
             alert.style.visibility = 'visible';
-            setInterval(() => {alert.style.visibility = 'hidden'}, 1000);
+            setInterval((() => {alert.style.visibility = 'hidden'}), 1500);
             return false;
+        }else{
+            userGuess.value = "";
+            alert.innerText = "Too short!😬"
+            alert.style.visibility = 'visible';
+            setInterval((() => {alert.style.visibility = 'hidden'}), 1500);
         }
     })
 }

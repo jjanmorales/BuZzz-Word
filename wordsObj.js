@@ -13,7 +13,6 @@ export const words = {
     "grad",
     "gran",
     "grand",
-    "grandad",
     "granddad",
     "guar",
     "guard",
