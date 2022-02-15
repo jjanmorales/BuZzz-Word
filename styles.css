@@ -106,7 +106,8 @@ body {
 }
 
 #del-btn, #enter-btn, #shuffle-btn {
-  background-color: white;
+  background-color: transparent;
+  color: white;
   border-radius: 5px;
   padding: 5px 9px;
   margin: 5px;
