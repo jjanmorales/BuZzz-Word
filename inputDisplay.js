@@ -25,7 +25,8 @@ const column1 = createElId("column-1");
 
 //Array to keep track of guessed words
 let guessedWordsArr = [];
-
+// holds current score
+let currentScore = 0;
 //extract groups of letters from words object to display in hexagons
 //Extract word list for that group of letters
 let letterGroups = [];
@@ -55,14 +56,28 @@ function displayLetters(){
 
 const enterForm = createElId("enter-form");
 
+
+
+function updateCurrentScore(word) {
+    // get the length of workd
+    // add to the current score
+    // update the container that displays current score
+    const points = word.length;
+    currentScore = points + currentScore;
+
+    const pointsTracker =document.getElementById('progress-tracker')
+    pointsTracker.innerText = currentScore;
+}
+
 //Take user input and check to see of the word is correct when they click the enter button
 //If it is correct, take the word and display it in the white right-side box and
 //increment amount of words found in the sentence on top 
 function checkUserInput(){
-    submitForm.addEventListener("submit", () =>{
+    submitForm.addEventListener("submit", (event) =>{
         event.preventDefault();
         //check for proper length, correct word and if word has been guessed already
         if((userGuess.value).length > 3 && isCorrect(userGuess.value) && !alreadyGuessed(userGuess.value)){
+            updateCurrentScore(userGuess.value)
             const par = document.createElement("p");
             par.innerText = userGuess.value.toUpperCase();
             column1.appendChild(par);
