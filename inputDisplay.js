@@ -14,7 +14,10 @@ const enter = createElId("enter-btn");
 const deleteBtn = createElId("del-btn");
 const wordsFound = createElId("words-found");
 const counter = createElId("counter");
+
 const letterCell = document.getElementsByClassName("letter");
+//Create list for words that are create and append to white box
+const wordsFoundUl = document.createElement("ul");
 const alert = createElId("wrong-alert");
 alert.style.visibility = 'hidden';
 //Create lists for words that are create and append to white box
@@ -43,7 +46,6 @@ function displayLetters(){
     for(let i = 0; i < letterCell.length; i++){
         //Display letters on the cells
         letterCell[i].innerText = currentGameLetters[i];
-        // letterCell[i].style.paddingTop = "40px";
         //Handle click event on the letter cells
         letterCell[i].addEventListener("click", () =>{
             userGuess.value += `${letterCell[i].innerText}`;
