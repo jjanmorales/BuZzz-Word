@@ -105,9 +105,11 @@ body {
   border-radius: 10px;
 }
 
+
 #del-btn, #enter-btn, #shuffle-btn {
   background-color: transparent;
   color: white;
+
   border-radius: 5px;
   padding: 5px 9px;
   margin: 5px;
@@ -232,6 +234,23 @@ left: 37.78%;
 right: 37.87%;
 top: 16.48%;
 bottom: 62.96%;
-
-
 }
+
+.column-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;     
+  align-items: center;
+}
+.win-message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+  /* width: 100%;
+  left: ; */
+  
+  top: 3em;
+}
+

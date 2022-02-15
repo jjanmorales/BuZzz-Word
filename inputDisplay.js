@@ -2,19 +2,24 @@ import {words} from "./wordsObj.js";
 document.addEventListener("DOMContentLoaded", () => {
     displayLetters();   
     checkUserInput(); 
-    deleteLetterBtn()
+    deleteLetterBtn();
+    newGame();
 })
 
+const modal = createElId("exampleModalCenter");
 
+const submitForm = createElId("submit-form")
 const userGuess = createElId("user-guess");
 const enter = createElId("enter-btn");
 const deleteBtn = createElId("del-btn");
 const wordsFound = createElId("words-found");
 const counter = createElId("counter");
 const letterCell = document.getElementsByClassName("letter-cell");
-//Create list for words that are create and append to white box
-const wordsFoundUl = document.createElement("ul");
-wordsFound.appendChild(wordsFoundUl);
+const alert = createElId("wrong-alert");
+alert.style.visibility = 'hidden';
+//Create lists for words that are create and append to white box
+const column1 = createElId("column-1");
+
 //Array to keep track of guessed words
 let guessedWordsArr = [];
 
@@ -24,8 +29,9 @@ let letterGroups = [];
 for(let prop in words){
     letterGroups.push(prop);
 }
-let currentGameLetters = letterGroups[0]
-const wordList = getWordList(currentGameLetters);
+let num = 0;
+let currentGameLetters = letterGroups[num]
+let wordList = getWordList(currentGameLetters);
 
 //Create variable for tags using id
 function createElId(id){
@@ -37,7 +43,7 @@ function displayLetters(){
     for(let i = 0; i < letterCell.length; i++){
         //Display letters on the cells
         letterCell[i].innerText = currentGameLetters[i];
-        letterCell[i].style.paddingTop = "30px";
+        letterCell[i].style.paddingTop = "40px";
         //Handle click event on the letter cells
         letterCell[i].addEventListener("click", () =>{
             userGuess.value += `${letterCell[i].innerText}`;
@@ -45,23 +51,44 @@ function displayLetters(){
     }
 }
 
+const enterForm = createElId("enter-form");
+
 //Take user input and check to see of the word is correct when they click the enter button
 //If it is correct, take the word and display it in the white right-side box and
 //increment amount of words found in the sentence on top 
 function checkUserInput(){
-    enter.addEventListener("click", () =>{
+    submitForm.addEventListener("submit", () =>{
+        event.preventDefault();
         //check for proper length, correct word and if word has been guessed already
-        if((userGuess.value).length > 3 && isCorrect(userGuess.value) && !alreadyGuessed(userGuess.value) ){
-         const wordsFoundLi = document.createElement("li");
-         wordsFoundLi.innerText = userGuess.value.toUpperCase();
-         wordsFoundUl.appendChild(wordsFoundLi);
-         guessedWordsArr.push(userGuess.value.toUpperCase());
-         wordsFoundLi.style.listStyle = 'none';
-         counter.innerText = Number(counter.innerText) + Number(1);
-         userGuess.value = "";
-       }else{
-        userGuess.value = "";
-       }
+        if((userGuess.value).length > 3 && isCorrect(userGuess.value) && !alreadyGuessed(userGuess.value)){
+            const par = document.createElement("p");
+            par.innerText = userGuess.value.toUpperCase();
+            column1.appendChild(par);
+            guessedWordsArr.push(userGuess.value.toUpperCase());
+            counter.innerText = Number(counter.innerText) + Number(1);
+            alert.innerText = "Yaass!"
+            alert.style.visibility = 'visible';
+            setInterval((() => {alert.style.visibility = 'hidden'}), 1500); 
+            userGuess.value = "";
+            return true;
+        }else if(alreadyGuessed(userGuess.value)){
+            userGuess.value = "";
+            alert.innerText = "You already guessed that!"
+            alert.style.visibility = 'visible';
+            setInterval((() => {alert.style.visibility = 'hidden'}), 1500); 
+            return false;
+        }else if((userGuess.value).length > 4){
+            userGuess.value = "";
+            alert.innerText = "Eh Wrong!😬"
+            alert.style.visibility = 'visible';
+            setInterval((() => {alert.style.visibility = 'hidden'}), 1500);
+            return false;
+        }else{
+            userGuess.value = "";
+            alert.innerText = "Too short!😬"
+            alert.style.visibility = 'visible';
+            setInterval((() => {alert.style.visibility = 'hidden'}), 1500);
+        }
     })
 }
 
@@ -95,7 +122,37 @@ function deleteLetterBtn(){
     })
 }
 
+//when user clicks new game button, new letters are placed in letter cells
+//right side container holding the guessed words is cleared and sentence
+//restarts at 0 words
+const newGameBtn = createElId("new-game-btn");
+function newGame(){
+    newGameBtn.addEventListener("click",()=>{
+        userGuess.value = "";
+        guessedWordsArr = [];
+        let column1Words = column1.children;
+        for(let i = 0; i < (column1.children).length; i++){
+            (column1.children[i]).innerText ="";
+        }
+        if(num < letterGroups.length){
+            num++;
+            currentGameLetters = letterGroups[num];
+            wordList = getWordList(currentGameLetters);
+            displayLetters();
+            counter.innerText = Number(0)
+        }else if(num === (letterGroups.length)){
+            num = 0;
+            currentGameLetters = letterGroups[num];
+            wordList = getWordList(currentGameLetters);
+            displayLetters();
+            counter.innerText = Number(0)
+        }
+    })
+    
+}
 
-
-
- 
+function win(){
+    if(guessedWord = 10){
+       
+    }
+}
