@@ -64,4 +64,30 @@ export const words = {
     "unman",
     "unmanning",
   ],
+
+  TGINYEU: [
+    "gunite",
+    "eying",
+    "tying",
+    "unity",
+    "tinge",
+    "unite",
+    "untie",
+    "tiny",
+    "yeti",
+    "tune",
+    "unit",
+  ],
+
+  EXMCINT: [
+    "mince",
+    "minx",
+    "next",
+    "exit",
+    "mice",
+    "cent",
+    "mine",
+    "mint",
+    "nice",
+  ],
 };

@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     displayLetters();   
     checkUserInput(); 
     deleteLetterBtn();
+    newGame();
 })
 
 const submitForm = createElId("submit-form")
@@ -12,6 +13,8 @@ const deleteBtn = createElId("del-btn");
 const wordsFound = createElId("words-found");
 const counter = createElId("counter");
 const letterCell = document.getElementsByClassName("letter-cell");
+const alert = createElId("wrong-alert");
+alert.style.visibility = 'hidden';
 //Create lists for words that are create and append to white box
 const column1 = createElId("column-1");
 const column2 = createElId("column-2");
@@ -26,8 +29,9 @@ let letterGroups = [];
 for(let prop in words){
     letterGroups.push(prop);
 }
-let currentGameLetters = letterGroups[0]
-const wordList = getWordList(currentGameLetters);
+let num = 0;
+let currentGameLetters = letterGroups[num]
+let wordList = getWordList(currentGameLetters);
 
 //Create variable for tags using id
 function createElId(id){
@@ -45,7 +49,6 @@ function displayLetters(){
             userGuess.value += `${letterCell[i].innerText}`;
         });
     }
-    console.log("runs")
 }
 
 const enterForm = createElId("enter-form");
@@ -133,15 +136,25 @@ function deleteLetterBtn(){
 //right side container holding the guessed words is cleared and sentence
 //restarts at 0 words
 const newGameBtn = createElId("new-game-btn");
-const alert = createElId("wrong-alert");
-alert.style.visibility = 'hidden';
-
-function flash(){
-    // const modal = document.getElementById("modal");
-    // newGameBtn.addEventListener("click", () =>{
-    //            // console.log(modal);
-    //     // modal.classList.add('is-active');
-        
-    // })
+function newGame(){
+    newGameBtn.addEventListener("click",()=>{
+        userGuess.value = "";
+        guessedWordsArr = [];
+        let column2Words = column2.children;
+        for(let i = 0; i < (column1.children).length; i++){
+            (column1.children[i]).innerText ="";
+        }
+        for(let i = 0; i < (column2.children).length; i++){
+            (column2.children[i]).innerText ="";
+        }
+        columnNum = 0;
+        if(num < letterGroups.length){
+            num++;
+            currentGameLetters = letterGroups[num];
+            wordList = getWordList(currentGameLetters);
+            displayLetters();
+        }
+    })
+    
 }
  
