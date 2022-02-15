@@ -14,7 +14,7 @@ const enter = createElId("enter-btn");
 const deleteBtn = createElId("del-btn");
 const wordsFound = createElId("words-found");
 const counter = createElId("counter");
-const letterCell = document.getElementsByClassName("letter-cell");
+const letterCell = document.getElementsByClassName("letter");
 const alert = createElId("wrong-alert");
 alert.style.visibility = 'hidden';
 //Create lists for words that are create and append to white box
@@ -43,7 +43,7 @@ function displayLetters(){
     for(let i = 0; i < letterCell.length; i++){
         //Display letters on the cells
         letterCell[i].innerText = currentGameLetters[i];
-        letterCell[i].style.paddingTop = "40px";
+        // letterCell[i].style.paddingTop = "40px";
         //Handle click event on the letter cells
         letterCell[i].addEventListener("click", () =>{
             userGuess.value += `${letterCell[i].innerText}`;
@@ -70,19 +70,17 @@ function checkUserInput(){
             alert.style.visibility = 'visible';
             setInterval((() => {alert.style.visibility = 'hidden'}), 1500); 
             userGuess.value = "";
-            return true;
+            win();
         }else if(alreadyGuessed(userGuess.value)){
             userGuess.value = "";
             alert.innerText = "You already guessed that!"
             alert.style.visibility = 'visible';
             setInterval((() => {alert.style.visibility = 'hidden'}), 1500); 
-            return false;
         }else if((userGuess.value).length > 4){
             userGuess.value = "";
             alert.innerText = "Eh Wrong!😬"
             alert.style.visibility = 'visible';
             setInterval((() => {alert.style.visibility = 'hidden'}), 1500);
-            return false;
         }else{
             userGuess.value = "";
             alert.innerText = "Too short!😬"
@@ -151,8 +149,9 @@ function newGame(){
     
 }
 
+const winContainer = getElementsByClassName("win-container");
 function win(){
-    if(guessedWord = 10){
-       
+    if(guessedWordsArr.length === 10){
+        
     }
 }
