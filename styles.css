@@ -298,8 +298,12 @@ bottom: 62.96%;
   /* z-index: 3;   */
 }
 
-#win-message {
-  display: flex;
+.win-message {
+  text-align: center;
+  height: 100px;
+  width: 250px;
+  display: flex
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
