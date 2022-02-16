@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     checkUserInput(); 
     deleteLetterBtn();
     newGame();
+    instructions();
 })
 
 const pluralS = createElId("plural-s");
@@ -187,4 +188,16 @@ function win(){
     });
 }
 
+const instructionsBtn = createElId("intructions-btn");
+const instructionsClose = createElId("instructions-close-btn");
+const howToPlay = createElId("how-to-play");
+howToPlay.style.visibility = "hidden";
+function instructions(){
+    instructionsBtn.addEventListener("click",() => {
+        howToPlay.style.visibility = "visible";
+    })
+    instructionsClose.addEventListener("click", () =>{
+        howToPlay.style.visibility = "hidden";
+    })
 
+}
