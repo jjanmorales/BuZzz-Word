@@ -145,6 +145,11 @@ body {
   color:rgb(255, 202, 198);
   filter: drop-shadow(0.1rem .2rem 0.3rem rgb(230, 99, 67));
 }
+#instructions-btn:hover {
+  border: 3px solid rgb(52, 133, 41);
+  color: rgb(213, 233, 211);
+  filter: drop-shadow(0.1rem .2rem 0.3rem rgb(52, 133, 41));
+}
 #del-btn:hover {
   border: 3px solid rgb(145, 41, 34);
   color:rgb(255, 202, 198);
@@ -238,6 +243,10 @@ svg {
   cursor: pointer;
 }
 
+.box:hover {
+  cursor: pointer;
+}
+
 /* top-left */
 
 .top-left{
@@ -328,4 +337,16 @@ bottom: 62.96%;
 
 #score {
   color: white;
+}
+
+#how-to-play {
+  text-align: center;
+  height: 100px;
+  width: 250px;
+  display: flex
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;
 }
