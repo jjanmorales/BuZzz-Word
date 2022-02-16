@@ -58,7 +58,6 @@ function displayLetters(){
 }
 
 
-
 const enterForm = createElId("enter-form");
 
 
@@ -173,9 +172,17 @@ function newGame(){
     
 }
 
-// const winContainer = getElementsByClassName("win-container");
-// function win(){
-//     if(guessedWordsArr.length === 10){//fvd
-        
-//     }
-// }
+
+const winContainer = createElId("win-container");
+const closeBtn = createElId("close-btn");
+winContainer.style.visibility = "hidden";
+function win(){
+    if(guessedWordsArr.length === 10){
+        winContainer.style.visibility = "visible";
+    }
+    closeBtn.addEventListener("click", () =>{
+        winContainer.style.visibility = "hidden";
+    });
+}
+
+

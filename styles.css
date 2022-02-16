@@ -223,6 +223,12 @@ svg {
   cursor: pointer;
 }
 
+.box:hover {
+  border-radius: 50%;
+  background: rgb(81, 139, 214);
+  background: radial-gradient(circle, rgba(142, 217, 240, 0.349) 0%, rgba(148,187,233,0) 100%);
+  cursor: pointer;
+}
 
 
 /* top-left */
@@ -282,16 +288,23 @@ bottom: 62.96%;
   justify-content: space-around;     
   align-items: center;
 }
-.win-message{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#win-container{
+  background-color: white;
+  height: 250px;
+  width: 400px;
+  display: grid;
+  place-items: center;
   position: absolute;
-  z-index: 3;
-  /* width: 100%;
-  left: ; */
-  
-  top: 3em;
+  /* z-index: 3;   */
+}
+
+
+#close-btn{
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 5px 9px;
+  margin: 5px;
+  color:black;
 }
 
 #wrong-alert {
@@ -300,3 +313,4 @@ bottom: 62.96%;
   border-radius: 5px;
   border: none;
 }
+
