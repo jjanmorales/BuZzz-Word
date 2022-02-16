@@ -86,6 +86,9 @@ function checkUserInput(){
             par.innerText = userGuess.value.toUpperCase();
             column1.appendChild(par);
             guessedWordsArr.push(userGuess.value.toUpperCase());
+            if(guessedWordsArr.length == 1){
+                pluralS.innerText = "";
+            }
             if(guessedWordsArr.length > 1){
                 pluralS.innerText = "s";
             }
