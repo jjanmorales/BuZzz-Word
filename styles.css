@@ -60,6 +60,7 @@ body {
   
 #right-container {
   display: flex;
+  flex-direction: column;
   width: 50%;
 }
 #left-container {
@@ -313,3 +314,6 @@ bottom: 62.96%;
   border: none;
 }
 
+#score {
+  color: white;
+}

@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     newGame();
 })
 
-const modal = createElId("exampleModalCenter");
-
+const pluralS = createElId("plural-s");
 const submitForm = createElId("submit-form")
 const userGuess = createElId("user-guess");
 const enter = createElId("enter-btn");
@@ -48,11 +47,14 @@ function displayLetters(){
         //Display letters on the cells
         letterCell[i].innerText = currentGameLetters[i];
         //Handle click event on the letter cells
-        letterCell[i].addEventListener("click", () =>{
-            userGuess.value += `${letterCell[i].innerText}`;
-        });
-    }
+        console.log(`${userGuess.value}`);
 
+    letterCell[i].addEventListener("click", () =>{
+        console.log( userGuess.value);
+        userGuess.value += `${letterCell[i].innerText}`;
+        
+    });
+    }
 }
 
 
@@ -83,10 +85,13 @@ function checkUserInput(){
             par.innerText = userGuess.value.toUpperCase();
             column1.appendChild(par);
             guessedWordsArr.push(userGuess.value.toUpperCase());
+            if(guessedWordsArr.length > 1){
+                pluralS.innerText = "s";
+            }
             counter.innerText = Number(counter.innerText) + Number(1);
             alert.innerText = "Yaass!"
             alert.style.visibility = 'visible';
-            setInterval((() => {alert.style.visibility = 'hidden'}), 1500); 
+            setInterval((() => {alert.style.visibility = 'hidden'}), 1550); 
             userGuess.value = "";
             win();
         }else if(alreadyGuessed(userGuess.value)){
@@ -147,9 +152,9 @@ function newGame(){
         userGuess.value = "";
         guessedWordsArr = [];
         let column1Words = column1.children;
-        for(let i = 0; i < (column1.children).length; i++){
-            (column1.children[i]).innerText ="";
-        }
+        // for(let i = 0; i < (column1.children).length; i++){
+        //     (column1.children[i]).innerText ="";
+        // }
         if(num < letterGroups.length){
             num++;
             currentGameLetters = letterGroups[num];
@@ -172,7 +177,7 @@ const winContainer = createElId("win-container");
 const closeBtn = createElId("close-btn");
 winContainer.style.visibility = "hidden";
 function win(){
-    if(guessedWordsArr.length === 2){
+    if(guessedWordsArr.length === 10){
         winContainer.style.visibility = "visible";
     }
     closeBtn.addEventListener("click", () =>{
