@@ -151,10 +151,12 @@ function newGame(){
     newGameBtn.addEventListener("click",()=>{
         userGuess.value = "";
         guessedWordsArr = [];
+        currentScore = 0;
+        updateCurrentScore("")
         let column1Words = column1.children;
-        // for(let i = 0; i < (column1.children).length; i++){
-        //     (column1.children[i]).innerText ="";
-        // }
+        for(let i = 0; i < (column1.children).length; i++){
+            (column1.children[i]).innerText ="";
+        }
         if(num < letterGroups.length){
             num++;
             currentGameLetters = letterGroups[num];
