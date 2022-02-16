@@ -88,10 +88,16 @@ body {
   font-size: 25px;
   font-weight:normal;
   text-align: center;
-  border: transparent;
+  border: 0;
   margin-bottom: 30;
   background-color: transparent;
   min-height: 30px;
+}
+#user-guess:focus {
+  outline: none!important;
+}
+#user-guess:focus::placeholder {
+  color: transparent;
 }
 
 #words-found {
@@ -101,18 +107,35 @@ body {
   padding: 10;
   background-color: transparent;
   height: 600px;
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid rgb(236, 216, 31);
   border-radius: 10px;
+  filter: drop-shadow(0.1rem .1rem .1rem rgb(230, 219, 67));
 }
 
 
 #del-btn, #enter-btn, #new-game-btn {
   background-color: transparent;
-  color: white;
-
-  border-radius: 5px;
+  color: white; 
+  border: 3px solid white;
+  border-radius: 8px;
+  /* box-shadow: none; */
   padding: 5px 9px;
   margin: 5px;
+}
+#del-btn:hover {
+  border: 3px solid rgb(145, 41, 34);
+  color:rgb(255, 202, 198);
+  filter: drop-shadow(0.1rem .2rem 0.3rem rgb(230, 99, 67));
+}
+#new-game-btn:hover {
+  border: 3px solid rgb(17, 150, 238);
+  color: rgb(197, 217, 230);
+  filter: drop-shadow(0.1rem .2rem 0.3rem rgb(17, 150, 238));
+}
+#enter-btn:hover {
+  border: 3px solid rgb(52, 133, 41);
+  color: rgb(213, 233, 211);
+  filter: drop-shadow(0.1rem .2rem 0.3rem rgb(52, 133, 41));
 }
 #control-hex {
   position: relative;
@@ -181,6 +204,23 @@ body {
 
 svg {
   padding-top: 0 !important;
+  display: inline-block;
+}
+
+.box:hover svg{
+  filter: drop-shadow(0rem 0rem 0.3rem rgb(250, 247, 46));
+  fill: rgb(248, 253, 179);
+  width: 92px;
+  height: 92px;
+  cursor: pointer;
+}
+
+.letter:hover {
+
+  /* border-radius: 50%;
+  background: rgb(81, 139, 214);
+  background: radial-gradient(circle, rgba(142, 217, 240, 0.349) 0%, rgba(148,187,233,0) 100%); */
+  cursor: pointer;
 }
 
 .box:hover {
@@ -227,7 +267,7 @@ left: 37.78%;
 right: 37.87%;
 top: 39.72%;
 bottom: 39.63%;
-
+color: yellow;
 
 }
 
@@ -258,6 +298,7 @@ bottom: 62.96%;
   /* z-index: 3;   */
 }
 
+
 #close-btn{
   background-color: transparent;
   border-radius: 5px;
@@ -265,3 +306,11 @@ bottom: 62.96%;
   margin: 5px;
   color:black;
 }
+
+#wrong-alert {
+  background-color: rgba(0, 0, 0, 0.158);
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
