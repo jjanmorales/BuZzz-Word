@@ -140,6 +140,15 @@ body {
   padding: 5px 9px;
   margin: 5px;
 }
+#instructions-close-btn {
+  background-color: transparent;
+  color: white; 
+  border: 3px solid white;
+  border-radius: 8px;
+  /* box-shadow: none; */
+  padding: 5px 9px;
+  margin: 5px;
+}
 #close-btn:hover {
   border: 3px solid rgb(145, 41, 34);
   color:rgb(255, 202, 198);
@@ -340,9 +349,31 @@ bottom: 62.96%;
 }
 
 #how-to-play {
+ border-radius: 5px;
+  background-color: black;
+  height: 400px;
+  width: 400px;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  /* z-index: 3;   */
+}
+
+#game-title {
+  background-color: transparent;
+}
+.title {
+  color: white;
+}
+
+.z-color {
+  color: yellow;
+}
+
+.instructions {
   text-align: center;
-  height: 100px;
-  width: 250px;
+  /*height: 400;*/
+  /*width: 400px;*/
   display: flex
   flex-direction: column;
   justify-content: center;

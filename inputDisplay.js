@@ -188,7 +188,7 @@ function win(){
     });
 }
 
-const instructionsBtn = createElId("intructions-btn");
+const instructionsBtn = createElId("instructions-btn");
 const instructionsClose = createElId("instructions-close-btn");
 const howToPlay = createElId("how-to-play");
 howToPlay.style.visibility = "hidden";
