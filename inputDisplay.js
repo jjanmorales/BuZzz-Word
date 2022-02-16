@@ -52,6 +52,7 @@ function displayLetters(){
             userGuess.value += `${letterCell[i].innerText}`;
         });
     }
+
 }
 
 const enterForm = createElId("enter-form");
@@ -165,9 +166,9 @@ function newGame(){
     
 }
 
-const winContainer = getElementsByClassName("win-container");
-function win(){
-    if(guessedWordsArr.length === 10){//fvd
+// const winContainer = getElementsByClassName("win-container");
+// function win(){
+//     if(guessedWordsArr.length === 10){//fvd
         
-    }
-}
+//     }
+// }
