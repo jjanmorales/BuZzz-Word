@@ -60,6 +60,7 @@ body {
   
 #right-container {
   display: flex;
+  flex-direction: column;
   width: 50%;
 }
 #left-container {
@@ -113,7 +114,7 @@ body {
 }
 
 
-#del-btn, #enter-btn, #new-game-btn {
+#del-btn, #enter-btn, #new-game-btn, #close-btn { 
   background-color: transparent;
   color: white; 
   border: 3px solid white;
@@ -121,6 +122,20 @@ body {
   /* box-shadow: none; */
   padding: 5px 9px;
   margin: 5px;
+}
+#close-btn {
+  background-color: transparent;
+  color: white; 
+  border: 3px solid white;
+  border-radius: 8px;
+  /* box-shadow: none; */
+  padding: 5px 9px;
+  margin: 5px;
+}
+#close-btn:hover {
+  border: 3px solid rgb(145, 41, 34);
+  color:rgb(255, 202, 198);
+  filter: drop-shadow(0.1rem .2rem 0.3rem rgb(230, 99, 67));
 }
 #del-btn:hover {
   border: 3px solid rgb(145, 41, 34);
@@ -215,22 +230,6 @@ svg {
   cursor: pointer;
 }
 
-.letter:hover {
-
-  /* border-radius: 50%;
-  background: rgb(81, 139, 214);
-  background: radial-gradient(circle, rgba(142, 217, 240, 0.349) 0%, rgba(148,187,233,0) 100%); */
-  cursor: pointer;
-}
-
-.box:hover {
-  border-radius: 50%;
-  background: rgb(81, 139, 214);
-  background: radial-gradient(circle, rgba(142, 217, 240, 0.349) 0%, rgba(148,187,233,0) 100%);
-  cursor: pointer;
-}
-
-
 /* top-left */
 
 .top-left{
@@ -289,7 +288,8 @@ bottom: 62.96%;
   align-items: center;
 }
 #win-container{
-  background-color: white;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.858);
   height: 250px;
   width: 400px;
   display: grid;
@@ -298,14 +298,14 @@ bottom: 62.96%;
   /* z-index: 3;   */
 }
 
-
-#close-btn{
-  background-color: transparent;
-  border-radius: 5px;
-  padding: 5px 9px;
-  margin: 5px;
-  color:black;
+#win-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;
 }
+
 
 #wrong-alert {
   background-color: rgba(0, 0, 0, 0.158);
@@ -314,3 +314,6 @@ bottom: 62.96%;
   border: none;
 }
 
+#score {
+  color: white;
+}
