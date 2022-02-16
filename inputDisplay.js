@@ -51,6 +51,7 @@ function displayLetters(){
     }
 }
 
+
 const enterForm = createElId("enter-form");
 
 //Take user input and check to see of the word is correct when they click the enter button
@@ -149,9 +150,16 @@ function newGame(){
     
 }
 
-const winContainer = getElementsByClassName("win-container");
+const winContainer = createElId("win-container");
+const closeBtn = createElId("close-btn");
+winContainer.style.visibility = "hidden";
 function win(){
-    if(guessedWordsArr.length === 10){//fvd
-        
+    if(guessedWordsArr.length === 10){
+        winContainer.style.visibility = "visible";
     }
+    closeBtn.addEventListener("click", () =>{
+        winContainer.style.visibility = "hidden";
+    });
 }
+
+
