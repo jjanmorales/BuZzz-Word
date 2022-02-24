@@ -183,7 +183,7 @@ const winContainer = createElId("win-container");
 const closeBtn = createElId("close-btn");
 winContainer.style.visibility = "hidden";
 function win(){
-    if(guessedWordsArr.length === 7){
+    if(guessedWordsArr.length === 6){
         winContainer.style.visibility = "visible";
     }
     closeBtn.addEventListener("click", () =>{
