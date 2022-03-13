@@ -75,7 +75,7 @@ body {
   text-align: center;
 }
 #button-container {
-  margin-top: 70;
+  /* margin-top: 70; */
   display: flex;
   justify-content: space-around;
 }
@@ -177,7 +177,7 @@ body {
 #control-hex {
   position: relative;
   width: 400px;
-  height: 400px;
+  height: 380px;
 }
 
 /* bottom-middle */
